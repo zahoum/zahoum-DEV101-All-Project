@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #f5f5ef, #e0e0b6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Animation d'entrée */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .container {
+    background-color: white;
+    display: flex;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    gap: 30px;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+    transform: translateY(40px);
+    width: 45%;
+  }
+  
+  .form-box {
+    flex: 1;
+  }
+  
+  .form-box h2 {
+    color: #052f3d;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #333;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 60%;
+  }
+  
+  input:focus {
+    border-bottom: 2px solid #8b4a25;
+    background-color: #f9f3ee;
+  }
+  
+  button {
+    width: 100px;
+    padding: 10px;
+    background-color: #8b4a25;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #a8552f;
+    transform: scale(1.05);
+  }
+  
+  .nav-box {
+    border: 1px solid #444;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background-color 0.5s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    height: 50%;
+  }
+  
+  .nav-box:hover {
+    transform: rotateY(8deg); 
+  }
+  .nav-box::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 400%;
+    border-radius: 22px;
+    z-index: -1;
+    animation: rainbow 6s linear infinite;
+  }
+  
+  /* Pour avoir un fond blanc à l’intérieur */
+  .nav-box::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: white;
+    border-radius: 18px;
+    z-index: -1;
+  }
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .nav-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-box li {
+    margin-bottom: 12px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .nav-box li:hover {
+    color: #8b4a25;
+  }
+  @keyframes aissa {
+    0%{
+        translate: unset;
+    }
+  }
+  
+  .nav-box span {
+    margin-right: 8px;
+    font-size: 18px;
+  }
+  

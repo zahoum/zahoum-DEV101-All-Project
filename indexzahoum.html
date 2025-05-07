@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculator UI</title>
+ 
+<style>
+    body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #202124;
+}
+
+.calculator {
+  width: 300px;
+  background-color: #3c4043;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.calculator-header {
+  margin-bottom: 20px;
+}
+
+.calculator-header h2 {
+  color: #ffffff;
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.calculator-display {
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  text-align: right;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #111;
+  color: #0f0;
+}
+
+.calculator-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.calculator-buttons button {
+  aspect-ratio: 1 / 1;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: #5f6368;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.calculator-buttons button:hover {
+  background-color: #7a7d82;
+}
+
+</style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="calculator-header">
+      <h2>Calculator</h2>
+      <input type="text" id="result" value="0" disabled class="calculator-display" />
+    </div>
+
+    <div class="calculator-buttons">
+      <!-- First row -->
+      <button onclick="clearDisplay()">C</button>
+      <button id="d" onclick="backspace()" >←</button>
+      <button id="p">%</button>
+      <button id="l">/</button>
+
+      <!-- Second row -->
+      <button id="7" >7</button>
+      <button id="8">8</button>
+      <button id="9">9</button>
+      <button id="dv">*</button>
+
+      <!-- Third row -->
+      <button id="4">4</button>
+      <button id="5">5</button>
+      <button id="6">6</button>
+      <button id="mo">-</button>
+
+      <!-- Fourth row -->
+      <button id="1">1</button>
+      <button id="2">2</button>
+      <button id="3">3</button>
+      <button id="pl">+</button>
+      <button id="pm">+/-</button>
+      <button id="0">0</button>
+      <button id="po">.</button>
+      <button id="e" onclick="calculate()">=</button>
+    </div>
+  </div>
+  <script>
+    const result = document.getElementById("result"); // get the element itself
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const value = button.textContent;  
+      append(value)
+    });
+    });
+    function append(value) {
+      if (value !== "C" && value !== "=" && value!="←") {
+        // If display is "0", replace it with the value pressed
+        if (result.value === "0") {
+          result.value = value;
+        } else {
+          result.value += value;
+        }
+      }
+    }
+  function calculate() {
+      try {
+        result.value = eval(result.value); // use eval to calculate the result
+      } catch {
+        result.value = "Error"; // display error if eval fails
+      }
+    }
+    function clearDisplay() {
+      result.value = "0";
+    }
+    function backspace() {
+      result.value = result.value.slice(0, -1); // Remove last character
+      if (result.value === "") {
+        result.value = "0"; // If empty, reset to "0"
+      }
+    }
+  </script>
+  
+</body>
+</html>

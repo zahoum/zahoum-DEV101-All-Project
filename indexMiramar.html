@@ -1,0 +1,44 @@
+
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Librairie MIRAMAR - Connexion</title>
+  <link rel="stylesheet" href="INDEX.CSS">
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="firebase-config.js"></script>*
+</head>
+<body>
+  <div class="container">
+    <h2>Bienvenue à la Librairie MIRAMAR</h2>
+    
+    <input type="text" id="username" placeholder="Nom d'utilisateur">
+    <input type="password" id="password" placeholder="Mot de passe">
+    <button onclick="connexionAdmin()">Connexion</button>
+
+    <div class="divider">OU</div>
+
+    <button onclick="signInWithGoogle()" class="google-button">Connexion avec Google</button>
+    <button onclick="window.location.href='utilisateur.html'" class="signup">Dommender Carte Miramar</button>
+
+    <div id="message" class="message"></div>
+    <p>Pas encore de compte ? <a href="create_account.html">Créer un compte</a></p>
+
+  </div>
+  
+
+
+  <!-- Ajouter Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+<script src="firebase-config.js"></script>
+<script src="index.js"></script>
+
+
+  <script src="INDEX.JS"></script>
+</body>
+</html>
+
+</body>
+</html>

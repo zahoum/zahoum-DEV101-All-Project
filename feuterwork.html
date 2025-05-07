@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>hello world</h2>
+    <script>
+
+        class Personne {
+            constructor(nom , age){
+                this.nom = nom
+                this.age = age
+            }
+            decrire(langue){
+                if (langue === "fr"){
+                    return 'bonjeur , je ma pélle ${this.nom} , agée de ${this.age} ans'
+                }
+                else if (langue ==="en"){
+                    return 'hi , my name is ${this.nom} ,am a ${this.age} '
+                }
+                else {
+                return `${this.nom}, ${this.age}.`;
+            }
+        }
+    }
+    parseFloat(2)
+    let p1 = new Personne('aissaZahoum',20)
+    alert(p1)
+    p1.nom
+    alert(p1.decrire('fr'))
+    alert(p1.decrire('en'))
+    alert(p1.decrire())
+    </script>
+</body>
+</html>

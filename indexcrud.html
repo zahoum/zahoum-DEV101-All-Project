@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact App</title>
+    <style>
+    *{
+    box-sizing: border-box;
+    margin: auto;
+    padding: auto;
+}
+
+
+
+        #logo{
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            color: rgb(119, 68, 167);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .father{
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            height: 100vh;
+            padding: 40px;
+        }
+
+            
+        .output p {
+            padding: 10px;
+            background-color: #f3f3f3;
+            border-radius: 10px;
+            margin-bottom: 10px;
+}
+        .father input{
+            width: 200px;
+            padding: 10px;
+            size: 20%;
+            border: none;
+            border-bottom: solid 1px rgb(172, 135, 93);
+            background: linear-gradient(to bottom, #f5f5ef, #e0e0b6);
+        }
+        .btn{
+            color: rgb(3, 3, 3);
+            border-radius: 20px;
+            box-sizing: 20px;
+            width: 54%;
+            padding: 10px;
+            background-color: rgb(228, 149, 149);
+            left: 90px;
+            cursor: pointer;
+            
+        }
+        #add {
+            background-color: rgb(248, 248, 248); /* light green */
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s ease;
+}
+#add:hover {
+    background-color: rgb(100, 200, 100);
+}
+
+
+    </style>
+</head>
+<body>
+    <h1 id="logo">ADD Contact</h1>
+
+    <div class="father">
+        <div class="input">
+            <input type="text" id="smiya" placeholder="name"><br><br>
+            <input type="email" id="jmail" placeholder="email"><br><br>
+            <input type="button" value="Add" id="add" onclick="addContact()"><br>
+        </div>
+            <div>
+                <h1>All Contacts</h1>
+
+                 <div class="output"  id="afichage">
+            
+            </div>
+            </div>
+        
+    </div>
+
+    <script>
+        let t =JSON.parse(localStorage.getItem('contacts')) || [];
+        
+        function addContact(){
+            name = document.getElementById('smiya').value;
+            mail = document.getElementById('jmail').value ;
+            
+            if (name && mail) {
+                t.push({ name, mail });
+                save()
+                affichier();
+
+                document.getElementById('smiya').value = '';
+                document.getElementById('jmail').value = '';
+            }
+            else {
+                alert('Please fill in all fields');
+            }
+
+        }
+        function affichier(){
+            let contact = document.getElementById('afichage')
+            contact.innerHTML = '';
+
+
+            t.forEach((element,index) => {
+                contact.innerHTML +=`
+                    <p>${element.name} <br>
+                        ${element.mail}<br>    
+                    <button onclick = "update(${index})" value="update" class="btn">update</button>
+                    <button onclick = "move(${index})" value = "delete" class="btn">delete</button>
+                    </p>
+                `
+            });
+        }
+        function save() {
+            localStorage.setItem('contacts',JSON.stringify(t));
+        }  
+        window.onload = function() {
+            affichier();
+        }
+        function move(index){
+            t.splice(index,1);
+            affichier();
+            save();
+        }
+        function update(index){
+            let name = prompt('Put A New Name To Change :' + t[index].name);
+            let mail = prompt('put A New Email To Change :' + t[index].mail);
+            if (name && mail){
+                t[index].name = name;
+                t[index].mail = mail;
+                affichier();
+                save();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aissa Zahoum | About Me</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #00b4d8;
+      --accent-color: #ff006e;
+      --background-light: #eceff1;
+      --background-dark: #121212;
+      --text-light: #f5f5f5;
+      --text-dark: #121212;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Background Video */
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background-light);
+      color: var(--text-dark);
+      transition: background 0.6s, color 0.6s, all 0.6s ease;
+      overflow-x: hidden;
+    }
+
+    /* Header */
+    header {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+    }
+
+    header p {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 2rem;
+      background: var(--background-light);
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      display: none;
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    .section-title {
+      color: var(--primary-color);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 3px solid var(--accent-color);
+      padding-bottom: 0.5rem;
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: white;
+      text-align: center;
+      padding: 3rem 1rem;
+      font-size: 1rem;
+      margin-top: 3rem;
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      background: var(--background-dark);
+      color: var(--text-light);
+    }
+
+    body.dark-mode header, body.dark-mode footer {
+      background: #002f47;
+      color: white;
+    }
+
+    /* Dark Mode Toggle Button */
+    .dark-mode-toggle {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+
+    .dark-mode-toggle:hover {
+      background: #ff005b;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Video -->
+  <video class="background-video" autoplay loop muted>
+    <source src="bg-projrct.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Mode Button -->
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+
+  <!-- Content -->
+  <header>
+    <h1>Aissa Zahoum</h1>
+    <p>Developer | Web Designer | Product Designer | Dreamer</p>
+  </header>
+
+  <main>
+    <section style="color: #121212;">
+      <h2 class="section-title">About Me</h2>
+      <p>Hello! I am Aissa Zahoum, a passionate Web Developer and Designer from Ait Ourir, Marrakech. I love building modern websites, learning new technologies, and challenging myself with new ideas. My dream is to create beautiful, functional, and accessible web experiences for everyone.</p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Skills</h2>
+      <ul style="color: #121212;">
+        <li>CRM & Customer Support</li>
+        <li>Sales & Communication Skills</li>
+        <li>Web Design & Development</li>
+        <li>Team Leadership & Multitasking</li>
+        <li>Time Management & Organization</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Languages</h2>
+      <ul style="color: #121212;">
+        <li>Arabic: Native</li>
+        <li>French: Advanced (C1)</li>
+        <li>English: Upper Intermediate (B2)</li>
+        <li>Spanish: Intermediate (B1)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="section-title">Connect With Me</h2>
+      <p style="color: #121212;">LinkedIn: <a href="https://www.linkedin.com/in/aissa-zahoum-1062a7271" target="_blank">View Profile</a></p>
+      <p style="color: #121212;">GitHub: <a href="https://github.com/zahoum" target="_blank">My Repositories</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>📧 Email me at: <a href="mailto:aissazahoum6@gmail.com">ZAHOUM</a></p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Dark Mode Toggle Function
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      let mode = document.body.classList.contains('dark-mode') ? "dark" : "light";
+      localStorage.setItem("mode", mode);  // Save mode preference in localStorage
+    }
+
+    // Apply saved mode on page load
+    window.addEventListener('load', function() {
+      let savedMode = localStorage.getItem("mode");
+      if (savedMode && savedMode === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+      setTimeout(function() {
+        document.querySelector('main').style.display = 'block';
+      }, 2000); // Show main content after 2 seconds
+    });
+  </script>
+
+</body>
+</html>

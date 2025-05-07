@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Créer un compte - Librairie MIRAMAR</title>
+  <link rel="stylesheet" href="create_account.css">
+</head>
+<body>
+  <div class="account-container">
+    <h1>Demander une carte d'accès à la Librairie MIRAMAR</h1>
+
+    <form id="create-account-form">
+      <input type="text" id="name" placeholder="Nom complet" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="phone" placeholder="Numéro de téléphone" required>
+      <textarea id="message" placeholder="Message (facultatif)"></textarea>
+      <button type="submit">Envoyer la demande</button>
+    </form>
+
+    <div id="response-message"></div>
+  </div>
+
+  <script src="create_account.js"></script>
+</body>
+</html>

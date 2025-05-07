@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Intro</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #000000, #1f1f1f);
+      color: white;
+      text-align: center;
+    }
+
+    video.bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .navbar {
+      display: flex;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+    }
+
+    .navbar button {
+      flex: 1;
+      padding: 15px 0;
+      font-size: 1rem;
+      background: #00ffe1;
+      border: none;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .navbar button:hover {
+      background-color: #00d1ba;
+    }
+
+    .container {
+      padding-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .intro-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid white;
+      box-shadow: 0 0 30px #00ffe1;
+      margin: 30px 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .intro-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: #ccc;
+      margin: 10px auto 30px;
+    }
+
+    .skills {
+      font-size: 1.4rem;
+      margin-top: 20px;
+      color: #00ffe1;
+    }
+
+    button.scroll-button a {
+      text-decoration: none;
+      color: black;
+    }
+
+    button.scroll-button {
+      margin-top: 40px;
+      padding: 15px 25px;
+      font-size: 1.1rem;
+      background: #00ffe1;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .extra-section {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 80px;
+    }
+
+    .card {
+      background-color: #111;
+      border-radius: 20px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 0 20px #00ffe177;
+      transition: transform 0.4s, opacity 0.4s;
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    /* Slider Section */
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      max-width: 600px;
+      margin: 80px auto 0;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffe1;
+    }
+
+    .slides {
+      display: flex;
+      width: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .slider:hover .slides {
+      transform: translateX(-100%);
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      color: white;
+      padding: 40px 20px;
+      margin-top: 100px;
+    }
+
+    .footer-section {
+      margin-bottom: 20px;
+    }
+
+    .footer-section a {
+      color: #00ffe1;
+      text-decoration: none;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffe1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video class="bg-video" autoplay muted loop>
+    <source src="4K 100_ Royalty-Free Stock Footage _ Technology HUD Element Intro Background _ No Copyright Video(720P_HD).mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <button onclick="scrollToSection('home')">Home</button>
+    <button onclick="scrollToSection('projects')">Projects</button>
+    <button onclick="scrollToSection('contact')">Contact</button>
+    <button onclick="scrollToSection('location')">Location</button>
+  </nav>
+
+  <!-- MAIN -->
+  <div class="container" id="home">
+    <h1>Hi, I'm just getting started.</h1>
+    <p>I'm not here to show off. I'm here to learn, to build, to grow — and this site is where it all happens.</p>
+    <div class="intro-img">
+      <img src="image.png" alt="My photo" />
+    </div>
+    <div class="skills">I’m a Web Developer, Front-End & Logo Designer</div>
+    <button class="scroll-button"><a href="about.html">No one in this world does it like this</a></button>
+  </div>
+
+  <!-- CARDS -->
+  <div class="extra-section" id="projects">
+    <div class="card">
+      <a href="indeexsuper.html" style="text-decoration: none;"><img src="system super market.png" alt="Image 1" style="cursor: pointer;"></a>
+      <p>Welcome to my personal space on the web — a place where I learn, practice, and grow as a developer.
+        This is a system PRODUCT MANAGEMENT 😉
+      </p>
+    </div>
+    <div class="card">
+      <a href="about.html" style="text-decoration: none;"><img src="IMG_20250107_162522.jpg" alt="Image 2" style="cursor: pointer;"></a>
+      <p>and to improve every day. i Follow my journey as I bulding up my level and my skills.</p>
+    </div>
+    <div class="card">
+      <a href="crud-preparatio.html" style="text-decoration: none;"><img src="chabiba.webp" alt="Image 2" style="cursor: pointer;"></a>
+      <p>I'm not here to show off, but to improve every day. Follow my journey as I explore coding, build projects, and level up my skills.</p>
+    </div>
+    <div class="card">
+      <a href="indexMiramar.html" style="text-decoration: none;"><img src="aissablack.webp" alt="Image 2" style="cursor: pointer;"></a>
+      <p>user = MIRAMAR <br>
+        password = ESSPMIRAMAR <br>
+        enter this pass and user to enter in mode controler <br>
+
+        I Do all my project with only my brain soo that why i posted any project if he is bigh or not just to improved my self</p>
+    </div>
+    <div class="card">
+      <a href="indexzahoum.html" style="text-decoration: none;"><img src="culter.webp" alt="Image 2" style="cursor: pointer;"></a>
+      <p>this is an standard calculator i build it using just my skils not an external surses cus the externql surses was be the samme in this moment</p>
+    </div>
+    <div class="card">
+      <a href="indexAnime.html" style="text-decoration: none;"><img src="ndader.jpg" alt="Image 2" style="cursor: pointer;"></a>
+      <p>I'm not here to show off, but to improve every day. Follow my journey as I explore coding, build projects, and level up my skills.</p>
+    </div>    
+    <div class="card">
+      <a href="indeexcrud.html" style="text-decoration: none;"><img src="hanout.jpg" alt="Image 2" style="cursor: pointer;"></a>
+      <p>It's similuer page his function pure js is to add 2 inputs and then this 2 input's storege in localstorege of your computer then y can use this idea like a smale project note  </p>
+    </div>
+    <div class="card">
+      <a href="indexcrud.html" style="text-decoration: none;"><img src="hose.jpg" alt="Image 2" style="cursor: pointer;"></a>
+      <p> the samme crud but it's change just samme of stucture  css  and   html </p>
+    </div>
+    
+    
+  </div>
+
+  <!-- HOVER SLIDER -->
+  <div class="slider">
+    <div class="slides">
+      <img src="wp9109684.webp" alt="Slide 1" />
+      <img src="IMG_20250107_162522.jpg" alt="Slide 2" />
+      <img src="aissablack.webp" alt="Slide 3" />
+      <img src="chabiba.webp" alt="Slide 4" />
+      <img src="culter.webp" alt="Slide 5" />
+      <img src="hanout.jpg" alt="Slide 6" />
+      <img src="hose.jpg" alt="Slide 7" />
+      <img src="ndader.jpg" alt="Slide 8" />
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-section">
+      <h2>À propos de moi</h2>
+      <p>Je suis un développeur passionné par l'apprentissage et le développement personnel à travers le code et la création web.</p>
+    </div>
+    <div class="footer-section">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:a.zahhoum8425@uca.ac.ma">Zahoum</a></p>
+    </div>
+    <div class="footer-section" id="location">
+      <h2>Localisation</h2>
+      <iframe src="https://www.google.com/maps?q=ait+ourir+marrakech&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    // Animate cards on scroll
+    const cards = document.querySelectorAll('.card');
+    window.addEventListener('scroll', () => {
+      cards.forEach(card => {
+        const pos = card.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) {
+          card.classList.add('visible');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

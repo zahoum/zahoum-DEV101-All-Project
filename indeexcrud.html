@@ -1,0 +1,290 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="father">
+        <h1>Add Contact</h1>
+        <div class="inputss">
+            <input type="text" placeholder="Name"  id="name"><br><br>
+            <input type="text" placeholder="Email" id="email"><br><br>
+            <input type="button" value="Add" id="add" onclick="addContact()"><br>
+        </div>
+        <h2>ALL Contact</h2>
+        <div class="outputss" id="output" >
+
+        </div>
+
+        
+    </div>
+    <script>
+        let t = JSON.parse(localStorage.getItem('contacts')) || [] ;
+        function addContact(){
+            let nom = document.getElementById('name').value;
+            let mail = document.getElementById('email').value;
+            if (nom && mail){
+                t.push({nom , mail});
+                save();
+                afficher();
+            }else{
+                alert ( "ther is nothing please feil the name and email");
+            }
+            
+        }
+        function afficher(){
+            let contact = document.getElementById('output');
+            contact.innerHTML='';
+            
+            t.forEach((element,index) => {
+                contact.innerHTML +=`
+                    <p> ${element.nom} <br>
+                        ${element.mail}<br>
+                    
+                    <button onclick ="update(${index})"  value ="update">Update</button><br>
+                    <button onclick="move(${index})" value="delete">Delete</button>
+                    </p>
+
+                    `;
+            });
+        }
+        function save(){
+            localStorage.setItem('contacts',JSON.stringify(t));
+        }
+        window.onload = function(){
+            afficher();
+        }
+        function move(index){
+            t.splice(index,1);
+            afficher();
+            save();
+        }
+        function update(index){
+            let nome = prompt('put a new name to change :' + t[index].nom);
+            let email = prompt('put a new email to change :' + t[index].mail);
+            if (nome && email){
+            t[index].nom = nome;
+            t[index].mail = email;
+            afficher();
+            save();
+        }
+        else {
+            alert("one of both is empty 🐱‍🏍 please put ");
+            }
+}
+
+
+
+
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+    }
+
+    form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="button"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    input[type="button"]:hover {
+        background-color: #45a049;
+    }
+
+    #output {
+        max-width: 700px;
+        margin: 30px auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    button {
+        margin-right: 5px;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[value="update"] {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    button[value="delete"] {
+        background-color: #3498db;
+        color: white;
+    }
+
+    button:hover {
+        opacity: 0.85;
+    }
+
+
+    </style>
+</head>
+<body>
+    <h1>PAGE SIMILAIRE</h1>
+    <form action="">
+        <label for="">Nom</label>
+        <input type="text"  id="name" placeholder="traier Mois"><br><br>
+        <label for="">Date</label>
+        <input type="date" id="datee" ><br><br>
+        <input type="button" value="Ajouter" onclick="ajouterr()">
+        
+    </form>
+    <div id="output">
+        
+
+    </div>
+    <script>
+        let t = JSON.parse(localStorage.getItem('contacts')) || [] ;
+        function ajouterr(){
+            
+            let nom = document.getElementById('name').value;
+            let datee = document.getElementById('datee').value;
+            if (nom && datee){
+                t.push({nom,datee})
+                save()//local storege
+                affichier();
+            }
+            else{
+                alert("ther is nothing in this please fulL it")
+            }
+        }
+        function affichier(){
+            let aff = document.getElementById('output');
+            aff.innerHTML='';
+
+            t.forEach((element,index) => {
+                aff.innerHTML+=`
+                    <table border="1">
+                        <tr>
+                            <td>
+                                nom
+                            </td>
+                            <td>
+                                date
+                            </td>
+                            <td>
+                                Complete/delete
+                            </td>
+                        </tr>
+                        <tr id="nom-${index}">
+                            <td>${element.nom}</td>
+                            <td>${element.datee}</td>
+                              <td><button onclick ="deletes(${index})"  value ="update">delete</button>
+                            <button onclick="Complete(${index})" value="delete" id ="comp">Complete</button></td>
+                        </tr>
+                    </table>
+                `
+            });
+        }
+        function save(){
+            localStorage.setItem('contacts',JSON.stringify(t));
+        }
+
+        function deletes(index){
+            let c=prompt('vouler vous suuprimier vraiment ca  Y , N');
+            if (c==='Y'|| c === 'y'){
+                t.splice(index, 1); // remove the item
+                save();
+                affichier();
+            }
+            else if (c ==='N' || c === 'n'){
+                
+                alert('THE MAISSION CANCLED SECCESFULY');
+                
+            }
+            
+        }
+        function Complete(index){
+            t[index].completed = true;
+            const div = document.getElementById(`nom-${index}`);
+            console.log(` nom-${index}`)
+            div.style.backgroundColor='#fa1009';
+            div.style.textDecoration = 'line-through';
+            div.style.fontWeight = 'bold';
+            save();
+     
+
+            const dive = document.getElementById(`date-${index}`);
+            dive.style.backgroundColor='#fa1009';
+            dive.style.textDecoration = 'line-through';
+            dive.style.fontWeight = 'bold';
+            save();
+
+
+        }
+        window.onload = function(){
+            affichier();
+        }    
+        
+    </script>
+</body>
+</html>
