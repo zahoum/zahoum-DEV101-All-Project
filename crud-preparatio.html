@@ -5,93 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-       *{
-        box-sizing: border-box;
-        padding: auto;
-        margin: auto;
-       } 
-       body{
-        margin: 20%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+       /* Responsive general layout */
+body {
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
 
-       }
-       #btn{
-        border: rgb(134, 88, 88);
-        background-color: #b86f6f;
-        border-radius: 45%;
-        width: 150px;
-        height: 30px;
-        display: block;
-        align-items: center;
-        cursor: pointer;
+/* Wrapper container */
+.father {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
 
-       }
-       #btn:hover{
-        background-color: #000000;
-        color: azure;
-        width: 160px;
-        height: 30px;
-       }
-       #btn::after{
-        border: none;
+/* Input styles */
+.father input[type="text"],
+.father input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #a74848;
+    font-size: 16px;
+}
 
-       }
-       .father input{
-        border:none;
-        border-bottom:1px solid rgb(167, 72, 72);
-        width: 400px;
-        height: 40px;
+/* Button style */
+#btn {
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
+    background-size: 500%;
+    color: white;
+    border: none;
+    border-radius: 22px;
+    height: 40px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    animation: rainbow 6s linear infinite;
+}
 
-       }
-       .father input:hover{
-        border: none;
-        width: 450px;
-        height: 40px;
-       }
-       .father input::after{
-        border: none;
-        animation-name:aissa ;
-       }
-       #btn{
-            content: "";
-            position: absolute;
-            top: 70px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet, red);
-            background-size: 500%;
-            border-radius: 22px;
-            z-index: -1;
-            animation: rainbow 6s linear infinite;
-       }
-       @keyframes rainbow {
-        0% {
-            background-position: 0% 50%;
-            }
-                50% {
-      background-position: 100% 50%;
-            }
-                100% {
-      background-position: 0% 50%;
-            }
-        }
-        h1{
-            position: absolute;
-            top: 540px;
-            left: 750px;
-            text-align: center;
-            color: #b86f6f;
+/* Button hover */
+#btn:hover {
+    background-color: #000;
+    color: white;
+}
 
-        }
-        .outputs{
-            position: absolute;
-            top: 540px;
-            left: 350px;
+/* Output container */
+.outputs {
+    width: 100%;
+    margin-top: 20px;
+}
 
-        }
+/* Table styling */
+.outputs table {
+    width: 100%;
+    margin-bottom: 10px;
+    border-collapse: collapse;
+}
+
+.outputs td {
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+/* Buttons inside table */
+.outputs input[type="button"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Title styling */
+h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #b86f6f;
+    margin-bottom: 20px;
+}
+
+/* Rainbow animation */
+@keyframes rainbow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    .father {
+        padding: 10px;
+    }
+
+    #btn {
+        font-size: 14px;
+        height: 36px;
+    }
+
+    .outputs table {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+}
+
+
        
     </style>
 </head>
