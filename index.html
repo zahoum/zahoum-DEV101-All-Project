@@ -118,20 +118,12 @@
       100% { transform: scale(1); }
     }
 
-    /* Slider for project cards */
-    .project-slider {
-      position: relative;
-      width: 90%;
-      max-width: 1000px;
-      margin: 80px auto;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #00ffe1;
-    }
-
-    .project-slides {
+    .extra-section {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 80px;
     }
 
     .card {
@@ -139,10 +131,15 @@
       border-radius: 20px;
       padding: 20px;
       width: 300px;
-      margin: 20px;
       box-shadow: 0 0 20px #00ffe177;
-      flex-shrink: 0;
-      text-align: left;
+      transition: transform 0.4s, opacity 0.4s;
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: scale(1);
     }
 
     .card img {
@@ -151,34 +148,36 @@
       margin-bottom: 15px;
     }
 
-    .card h2 {
-      font-size: 1.4rem;
-      color: #00ffe1;
-      margin-bottom: 10px;
-    }
-
     .card p {
       font-size: 1rem;
       color: #ccc;
     }
 
-    .slider-nav {
-      text-align: center;
-      margin-top: 10px;
+    /* Slider Section */
+    .slider {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      max-width: 600px;
+      margin: 80px auto 0;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00ffe1;
     }
 
-    .slider-nav button {
-      background-color: #00ffe1;
-      border: none;
-      padding: 10px 20px;
-      margin: 0 10px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 8px;
+    .slides {
+      display: flex;
+      width: 100%;
+      transition: transform 0.5s ease;
     }
 
-    .slider-nav button:hover {
-      background-color: #00d1ba;
+    .slider:hover .slides {
+      transform: translateX(-100%);
+    }
+
+    .slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* Footer */
@@ -210,11 +209,13 @@
 </head>
 <body>
 
+  <!-- Background Video -->
   <video class="bg-video" autoplay muted loop>
     <source src="4K 100_ Royalty-Free Stock Footage _ Technology HUD Element Intro Background _ No Copyright Video(720P_HD).mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
+  <!-- Navigation -->
   <nav class="navbar">
     <button onclick="scrollToSection('home')">Home</button>
     <button onclick="scrollToSection('projects')">Projects</button>
@@ -222,6 +223,7 @@
     <button onclick="scrollToSection('location')">Location</button>
   </nav>
 
+  <!-- MAIN -->
   <div class="container" id="home">
     <h1>Hi, I'm just getting started.</h1>
     <p>I'm not here to show off. I'm here to learn, to build, to grow — and this site is where it all happens.</p>
@@ -232,43 +234,65 @@
     <button class="scroll-button"><a href="about.html">No one in this world does it like this</a></button>
   </div>
 
-  <!-- PROJECT SLIDER -->
-  <div class="project-slider" id="projects">
-    <div class="project-slides" id="projectSlides">
-      <div class="card">
-        <h2>System Super Market</h2>
-        <a href="indeexsuper.html"><img src="system super market.png" alt="Image 1"></a>
-        <p>This is a system PRODUCT MANAGEMENT 😉</p>
-      </div>
-      <div class="card">
-        <h2>Personal Journey</h2>
-        <a href="about.html"><img src="IMG_20250107_162522.jpg" alt="Image 2"></a>
-        <p>Follow my journey as I build up my level and skills.</p>
-      </div>
-      <div class="card">
-        <h2>Chabiba CRUD</h2>
-        <a href="crud-preparatio.html"><img src="chabiba.webp" alt="Image 3"></a>
-        <p>I’m exploring coding, building projects, and growing every day.</p>
-      </div>
-      <div class="card">
-        <h2>Miramar Control</h2>
-        <a href="indexMiramar.html"><img src="aissablack.webp" alt="Image 4"></a>
-        <p>User: MIRAMAR | Pass: ESSPMIRAMAR</p>
-      </div>
-      <div class="card">
-        <h2>Standard Calculator</h2>
-        <a href="indexzahoum.html"><img src="culter.webp" alt="Image 5"></a>
-        <p>I built this without external resources.</p>
-      </div>
+  <!-- CARDS -->
+  <div class="extra-section" id="projects">
+    <div class="card">
+      <a href="indeexsuper.html" style="text-decoration: none;"><img src="system super market.png" alt="Image 1" style="cursor: pointer;"></a>
+      <p>Welcome to my personal space on the web — a place where I learn, practice, and grow as a developer.
+        This is a system PRODUCT MANAGEMENT 😉
+      </p>
     </div>
+    <div class="card">
+      <a href="about.html" style="text-decoration: none;"><img src="IMG_20250107_162522.jpg" alt="Image 2" style="cursor: pointer;"></a>
+      <p>and to improve every day. i Follow my journey as I bulding up my level and my skills.</p>
+    </div>
+    <div class="card">
+      <a href="crud-preparatio.html" style="text-decoration: none;"><img src="chabiba.webp" alt="Image 2" style="cursor: pointer;"></a>
+      <p>I'm not here to show off, but to improve every day. Follow my journey as I explore coding, build projects, and level up my skills.</p>
+    </div>
+    <div class="card">
+      <a href="indexMiramar.html" style="text-decoration: none;"><img src="aissablack.webp" alt="Image 2" style="cursor: pointer;"></a>
+      <p>user = MIRAMAR <br>
+        password = ESSPMIRAMAR <br>
+        enter this pass and user to enter in mode controler <br>
 
-    <!-- Slider Navigation -->
-    <div class="slider-nav">
-      <button onclick="moveSlide(-1)">‹</button>
-      <button onclick="moveSlide(1)">›</button>
+        I Do all my project with only my brain soo that why i posted any project if he is bigh or not just to improved my self</p>
+    </div>
+    <div class="card">
+      <a href="indexzahoum.html" style="text-decoration: none;"><img src="culter.webp" alt="Image 2" style="cursor: pointer;"></a>
+      <p>this is an standard calculator i build it using just my skils not an external surses cus the externql surses was be the samme in this moment</p>
+    </div>
+    <div class="card">
+      <a href="indexAnime.html" style="text-decoration: none;"><img src="ndader.jpg" alt="Image 2" style="cursor: pointer;"></a>
+      <p>I'm not here to show off, but to improve every day. Follow my journey as I explore coding, build projects, and level up my skills.</p>
+    </div>    
+    <div class="card">
+      <a href="indeexcrud.html" style="text-decoration: none;"><img src="hanout.jpg" alt="Image 2" style="cursor: pointer;"></a>
+      <p>It's similuer page his function pure js is to add 2 inputs and then this 2 input's storege in localstorege of your computer then y can use this idea like a smale project note  </p>
+    </div>
+    <div class="card">
+      <a href="indexcrud.html" style="text-decoration: none;"><img src="hose.jpg" alt="Image 2" style="cursor: pointer;"></a>
+      <p> the samme crud but it's change just samme of stucture  css  and   html </p>
+    </div>
+    
+    
+  </div>
+
+  <!-- HOVER SLIDER -->
+  <div class="slider">
+    <div class="slides">
+      <img src="wp9109684.webp" alt="Slide 1" />
+      <img src="IMG_20250107_162522.jpg" alt="Slide 2" />
+      <img src="aissablack.webp" alt="Slide 3" />
+      <img src="chabiba.webp" alt="Slide 4" />
+      <img src="culter.webp" alt="Slide 5" />
+      <img src="hanout.jpg" alt="Slide 6" />
+      <img src="hose.jpg" alt="Slide 7" />
+      <img src="ndader.jpg" alt="Slide 8" />
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer id="contact">
     <div class="footer-section">
       <h2>À propos de moi</h2>
@@ -284,6 +308,7 @@
     </div>
   </footer>
 
+  <!-- Script -->
   <script>
     function scrollToSection(id) {
       const el = document.getElementById(id);
@@ -292,19 +317,18 @@
       }
     }
 
-    let currentIndex = 0;
-    const slides = document.getElementById("projectSlides");
-    const cardWidth = 340; // width + margin
-
-    function moveSlide(step) {
-      const totalCards = slides.children.length;
-      currentIndex += step;
-
-      if (currentIndex < 0) currentIndex = totalCards - 1;
-      if (currentIndex >= totalCards) currentIndex = 0;
-
-      slides.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-    }
+    // Animate cards on scroll
+    const cards = document.querySelectorAll('.card');
+    window.addEventListener('scroll', () => {
+      cards.forEach(card => {
+        const pos = card.getBoundingClientRect().top;
+        if (pos < window.innerHeight - 100) {
+          card.classList.add('visible');
+        }
+      });
+    });
   </script>
 </body>
 </html>
+
+hada projet dyali walakin brit ndir lih thsin 3la moustawa les div les fihoum les projet class card brit trdhoum luya ykouno slide y3ni ndwez mn wahd l wahd b sahem w ykoun ymkn luya nkliki fiha mhm bditk t ameliorer luya hada w britk dir lihoum chhi style sont different 
