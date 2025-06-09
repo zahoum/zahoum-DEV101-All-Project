@@ -85,3 +85,66 @@ input:focus{
  th,td{
     padding: 5px;
  }
+ @media (max-width: 768px) {
+    .crud {
+        width: 95%;
+    }
+
+    .price input {
+        width: 48%;
+        margin-bottom: 6px;
+    }
+
+    .btnSearch {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btnSearch button {
+        width: 100%;
+    }
+
+    input, button {
+        font-size: 14px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    table th, table td {
+        font-size: 14px;
+        padding: 4px;
+    }
+
+    #total {
+        font-size: 14px;
+        display: inline-block;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .head p {
+        font-size: 0.9rem;
+    }
+
+    .price input {
+        width: 100%;
+    }
+
+    input, button {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    table th, table td {
+        font-size: 12px;
+    }
+}
